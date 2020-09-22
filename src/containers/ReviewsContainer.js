@@ -2,16 +2,32 @@ import React, { Component } from 'react';
 import ReviewInput from '../components/reviews/ReviewInput';
 import Reviews from '../components/reviews/Reviews';
 
+import { connect } from 'react-redux'
+
 class ReviewsContainer extends Component {
 
   render() {
     return (
       <div>
-        <ReviewInput />
-        <Reviews />
+        <ReviewInput addReview={this.props.addReview} restaurantId={this.props.restaurantId} />
+        {/* TODO: Filter reviews based on restaurant id passed in */}
+        <Reviews delete={this.props.delete} reviews={this.props.reviews.filter(review => review.restaurantId === this.props.restaurantId)} />
       </div>
     )
   }
 }
 
-export default ReviewsContainer;
+const mapStateToProps = state => {
+  return {
+    reviews: state.reviews
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    addReview: review => dispatch({ type: "ADD_REVIEW", review }),
+    delete: id => dispatch({ type: "DELETE_REVIEW", id })
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ReviewsContainer);
