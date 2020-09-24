@@ -1,13 +1,13 @@
 export const addRestaurant = text => {
   return {
     type: "ADD_RESTAURANT",
-    payload: { text }
+    payload: text
   };
 };
 
 export const deleteRestaurant = id => {
   return {
     type: "DELETE_RESTAURANT",
-    payload: { id }
+    payload: id
   };
 };

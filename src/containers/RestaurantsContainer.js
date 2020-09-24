@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import RestaurantInput from "../components/restaurants/RestaurantInput";
 import Restaurants from "../components/restaurants/Restaurants";
 import { connect } from "react-redux";
-import { addRestaurant, deleteRestaurant } from "../actions/actions.js";
+import { addRestaurant, deleteRestaurant } from "../actions/actions";
 
 class RestaurantsContainer extends Component {
   render() {

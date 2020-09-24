@@ -7,9 +7,10 @@ export default function manageRestaurants(state = { restaurants: [] }, action) {
       return { ...state, restaurants: [...state.restaurants, restaurant] };
 
     case "DELETE_RESTAURANT":
-      const restaurants = state.restaurants.filter(restaurant => {
-        restaurant.id !== action.payload;
-      });
+      const restaurants = state.restaurants.filter(
+        restaurant => restaurant.id !== action.payload
+      );
+
       return { ...state, restaurants };
 
     default:

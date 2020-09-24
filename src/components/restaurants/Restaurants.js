@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Restaurant from "./Restaurant";
-import { deleteRestaurant } from "../actions/actions";
 
 class Restaurants extends Component {
   render() {
